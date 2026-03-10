@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+/* Dark mode por clase en html (para ThemeContext) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@theme {
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-secondary: #8b5cf6;
+  --color-secondary-hover: #7c3aed;
+  --color-cyan: #06b6d4;
+  --color-emerald: #10b981;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-blob: blob 7s infinite;
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+}
+
+@utility animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+@utility animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* ─── Elite Theme Engine (Cyber-Fresh Specifications) ────────────────────── */
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  /* Azul oscuro casi negro */
+  --text-muted: #64748b;
+  /* Slate 500 */
+  --border-color: #f1f5f9;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(226, 232, 240, 0.5);
+
+  /* Green Elite Aurora Mesh (V4) */
+  --grad-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --grad-success: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --grad-vibrant: radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(34, 197, 94, 0.1) 0, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(5, 150, 105, 0.08) 0, transparent 50%);
+  --shadow-elite: 0 32px 64px -16px rgba(16, 185, 129, 0.1);
+}
+
+.dark {
+  --bg-main: #0f172a;
+  --bg-card: rgba(15, 23, 42, 0.9);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-color: rgba(124, 58, 237, 0.2);
+  --glass-bg: rgba(15, 23, 42, 0.8);
+  --glass-border: rgba(124, 58, 237, 0.3);
+  --shadow-elite: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: var(--bg-main) !important;
+  background-image: var(--grad-vibrant) !important;
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark body {
+  background-image:
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, rgba(34, 197, 94, 0.05) 0, transparent 50%) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--text-main);
+  letter-spacing: -0.025em;
+}
+
+/* ─── Container Systems ──────────────────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.dark .glass {
+  box-shadow: 0 8px 32px 0 rgba(7, 4, 25, 0.5);
+}
+
+.glass-card {
+  background: var(--bg-card) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .glass-card {
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(124, 58, 237, 0.1) !important;
+}
+
+.cyber-header {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+.dark .cyber-header {
+  background: rgba(15, 23, 42, 0.4) !important;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.15) !important;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 40px 80px -15px rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+.glass-vibrant {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  box-shadow: var(--shadow-elite);
+}
+
+.dark .glass-vibrant {
+  background: rgba(15, 23, 42, 0.5) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+}
+
+/* ─── Typography & Buttons ──────────────────────────────────────────────── */
+.text-muted-semantic {
+  color: var(--text-muted) !important;
+}
+
+.btn-success {
+  background: var(--grad-success);
+  color: white;
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.4);
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 700;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px 0 rgba(16, 185, 129, 0.6);
+}
+
+.btn-primary-elite {
+  background: var(--grad-primary);
+  color: white;
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.4);
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary-elite:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px 0 rgba(59, 130, 246, 0.6);
+}
+
+/* ─── Login Page Specific ────────────────────────────────────────────────── */
+.login-bg {
+  background: linear-gradient(to bottom right, #f8fafc 0%, #eef2ff 100%);
+}
+
+.dark .login-bg {
+  background: linear-gradient(to bottom right, #0f172a 0%, #1b1a55 50%, #020617 100%);
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+.dark .login-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 40px -10px rgba(6, 182, 212, 0.15);
+}
+
+.login-input {
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  transition: all 0.2s ease;
+}
+
+.dark .login-input {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
+}
+
+.login-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

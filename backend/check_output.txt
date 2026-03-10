@@ -1,0 +1,22 @@
+﻿DEBUG: Configuracion cargada.
+DEBUG: DATABASE_URL: postgresql://postgres:admin@localhost:5432/product_tracker
+DEBUG: Conectando a la base de datos: postgresql://postgres:admin@localhost:5432/product_tracker
+=== REVISIËN COMPLETA DE BASE DE DATOS ===
+[OK] Conexi¾n a PostgreSQL: PostgreSQL 18.2 on x86_64-windows, compiled by msvc-19.44.35
+[OK] Base de datos actual: product_tracker
+[OK] Tablas encontradas (13): ['users', 'suppliers', 'products', 'sales', 'purchase_orders', 'audit_logs', 'sale_items', 'purchase_order_items', 'stock_movements', 'product_supplier', 'clients', 'returns', 'return_items']
+  - users: 4 registros
+  - suppliers: 2 registros
+  - products: 2 registros
+  - sales: 2 registros
+  - purchase_orders: 0 registros
+  - audit_logs: 0 registros
+  - sale_items: 2 registros
+  - purchase_order_items: 0 registros
+  - stock_movements: 2 registros
+  - product_supplier: 0 registros
+  - clients: 0 registros
+  - returns: 0 registros
+  - return_items: 0 registros
+[OK] Usuario 'juanma123' existe - rol: ADMIN, activo: True
+=== FIN DE REVISIËN ===
